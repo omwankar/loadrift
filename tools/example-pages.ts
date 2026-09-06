@@ -110,9 +110,14 @@ function round(n: number, dp = 0): string {
  * text. A pipe inside a table cell ends the cell early. None of the current
  * presets trip this, which is exactly why it is applied by the generator
  * rather than left to whoever writes the twenty-fourth one.
+ *
+ * The backslash goes first, and in the same pass. Escaping it afterwards would
+ * double the ones this function just added, and leaving it out means an input
+ * of `\{` comes out as `\\{`: the backslash escapes the backslash and the
+ * brace is bare again, which is the error the escaping exists to prevent.
  */
 function mdx(s: string): string {
-  return s.replace(/\|/g, '\\|').replace(/[{}<>]/g, (c) => `\\${c}`);
+  return s.replace(/[\\|{}<>]/g, (c) => `\\${c}`);
 }
 
 /**

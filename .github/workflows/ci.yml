@@ -1,0 +1,80 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+# Nothing here writes to the repository, so start from zero and grant per job.
+permissions: {}
+
+# A new push to a PR makes the previous run irrelevant, so stop it rather than
+# paying for both.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # OS-independent gates. Typecheck, lint and format read the same bytes on
+  # every platform, so running them once on Linux is the whole coverage; a
+  # matrix here would re-run identical work at the slowest per-minute rate.
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          # The checkout token is not needed after clone, so do not leave it in
+          # .git/config where a later step or dependency could read it.
+          persist-credentials: false
+
+      - uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2
+        with:
+          bun-version: latest
+
+      - name: Install
+        run: bun install --frozen-lockfile
+
+      - name: Typecheck
+        run: bun run typecheck
+
+      - name: Lint
+        run: bun run lint
+
+      - name: Format
+        run: bun run format:check
+
+  # The suite and the build run on every OS the project supports. Linux alone
+  # missed a path bug that broke the whole suite on Windows (#16): the code the
+  # matrix actually exercises differently is drive letters and path separators.
+  # macOS is left out on purpose. It shares Unix path semantics with Linux, so
+  # against ubuntu it mostly re-runs the same code paths; add a third entry the
+  # day something turns out to be Darwin-specific.
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2
+        with:
+          bun-version: latest
+
+      - name: Install
+        run: bun install --frozen-lockfile
+
+      - name: Test
+        run: bun run test
+
+      - name: Build
+        run: bun run build

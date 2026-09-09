@@ -12,7 +12,7 @@ import type { TextStyle } from './textMetrics';
 import type { AnnotationFont, Note } from '../sim/annotations';
 
 /** Drag payload type for the palette's annotation rows. */
-export const ANN_DND_MIME = 'application/x-breakscale-annotation';
+export const ANN_DND_MIME = 'application/x-loadrift-annotation';
 
 /**
  * The text a freshly placed note is born with. Shared by the shell (which
@@ -43,9 +43,9 @@ export interface NoteSizeSpec {
 export const NOTE_BOLD_WEIGHT = 700;
 
 export const NOTE_SIZES: Record<Note['size'], NoteSizeSpec> = {
-  sm: { font: 12, line: 17, weight: 450 },
-  md: { font: 16, line: 22, weight: 450 },
-  lg: { font: 24, line: 32, weight: 550 },
+  sm: { font: 12, line: 17, weight: 400 },
+  md: { font: 16, line: 22, weight: 400 },
+  lg: { font: 24, line: 32, weight: 500 },
 };
 
 /**
@@ -172,7 +172,7 @@ export function layoutNote(
     lineH: spec.line,
     weight: style.weight,
     // The box has to hold the LAST line's descender, not just its line box.
-    // A face whose baseline sits low in the box (Caveat's does) paints past
+    // A face whose baseline sits low in the box (Kalam's does) paints past
     // lines * lineH, which left the selection ring cutting through the final
     // row of text. Take whichever is taller.
     height: Math.max(
@@ -182,7 +182,7 @@ export function layoutNote(
     ),
     // Centre the glyphs in their line box the way CSS line-height does, from
     // the face's OWN measured ascent and descent. A fixed 0.8em was close
-    // enough while every note was set in the UI sans; Caveat's box is a tenth
+    // enough while every note was set in the UI sans; Kalam's box is a tenth
     // of an em shallower, which is a visible drop at the `lg` size.
     baseline,
   };

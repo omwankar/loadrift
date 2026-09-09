@@ -1,9 +1,9 @@
 /* ==========================================================================
-   Breakscale design system — foundation layer
+   Loadrift design system — foundation layer
 
-   IDENTITY: warm paper. This is a teaching tool for a student who has never
-   seen a queueing curve. It should read like a well-set textbook figure —
-   open, calm, legible — not like a monitoring console.
+   IDENTITY: cool slate. This is a teaching tool for a student who has never
+   seen a queueing curve. It should read like a calm lab notebook — open,
+   precise, legible — not like a monitoring console.
 
    This file owns, and is the SOLE owner of:
      - the six-step type scale
@@ -15,7 +15,7 @@
    Rules enforced here:
      - Six font sizes only: 11 / 12 / 14 / 16 / 22 / 34. Nothing else.
        No half-pixel sizes, ever.
-     - Three weights only: 450 (body), 550 (emphasis/labels), 650 (numbers).
+     - Three weights only: 400 (body), 500 (emphasis/labels), 600 (numbers).
      - Spacing is 4 / 8 / 12 / 16 / 20 / 28 / 40. No other value.
      - Radii are 6 / 8 / 10 / 14 / 999. A radius is never combined with a
        single-side border.
@@ -37,20 +37,19 @@
    ========================================================================== */
 
 /* ==========================================================================
-   Bundled webfont: Caveat.
+   Bundled webfonts: Plus Jakarta Sans, IBM Plex Mono, Kalam.
 
    Self-hosted rather than linked from Google Fonts, so the page makes no
    third-party request and nothing about who is reading leaves this origin.
 
-   Licensed under the SIL Open Font License 1.1, which is NOT the repository's
-   MIT licence: the full terms travel with the binary in
-   public/fonts/Caveat/OFL.txt, as the licence requires. Verified from the
-   font's own embedded metadata rather than from a secondary source.
+   Each face is licensed under the SIL Open Font License 1.1, which is NOT
+   the repository's MIT licence: the full terms travel with the binaries in
+   public/fonts (OFL.txt, and LICENSE.txt for IBM Plex Mono), as the licence
+   requires.
 
-   The latin subset only (the unicode-range below is Google's own for that
-   block), which is 75KB. `font-display: swap` because a handwriting face is
-   decoration on top of an annotation that is perfectly readable in the
-   fallback; blocking text on it would be the wrong trade.
+   Latin subsets only. `font-display: swap` because the UI is readable in the
+   system fallback; blocking first paint on a font download would be the
+   wrong trade on a page whose point is a live simulation.
 
    Canvas measures text through textMetrics, which caches widths. Canvas
    already calls resetTextMetrics from a document.fonts.ready handler, so the
@@ -59,11 +58,119 @@
    ========================================================================== */
 
 @font-face {
-  font-family: 'Caveat';
+  font-family: 'Plus Jakarta Sans';
   font-style: normal;
-  font-weight: 400 700;
+  font-weight: 400;
   font-display: swap;
-  src: url('/fonts/Caveat/Caveat-latin.woff2') format('woff2');
+  src: url('/fonts/PlusJakartaSans/PlusJakartaSans-400.woff2') format('woff2');
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304,
+    U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF,
+    U+FFFD;
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/PlusJakartaSans/PlusJakartaSans-500.woff2') format('woff2');
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304,
+    U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF,
+    U+FFFD;
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/PlusJakartaSans/PlusJakartaSans-600.woff2') format('woff2');
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304,
+    U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF,
+    U+FFFD;
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/PlusJakartaSans/PlusJakartaSans-700.woff2') format('woff2');
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304,
+    U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF,
+    U+FFFD;
+}
+
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/IBMPlexMono/IBMPlexMono-400.woff2') format('woff2');
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304,
+    U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF,
+    U+FFFD;
+}
+
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/IBMPlexMono/IBMPlexMono-500.woff2') format('woff2');
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304,
+    U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF,
+    U+FFFD;
+}
+
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/IBMPlexMono/IBMPlexMono-600.woff2') format('woff2');
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304,
+    U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF,
+    U+FFFD;
+}
+
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/IBMPlexMono/IBMPlexMono-700.woff2') format('woff2');
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304,
+    U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF,
+    U+FFFD;
+}
+
+@font-face {
+  font-family: 'Kalam';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/Kalam/Kalam-400.woff2') format('woff2');
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304,
+    U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF,
+    U+FFFD;
+}
+
+@font-face {
+  font-family: 'Kalam';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/Kalam/Kalam-700.woff2') format('woff2');
   unicode-range:
     U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304,
     U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF,
@@ -75,12 +182,12 @@
      Type scale — six steps, all integers.
      Nothing outside this table may set a font-size anywhere in the codebase.
 
-       T1  11  550  uppercase  labels, eyebrows, axis captions
-       T2  12  450             secondary prose, help text, tick values
-       T3  14  450             body default, node name, list rows  [BASE]
-       T4  16  650  mono       workhorse numeric: node primary, stat values
-       T5  22  650  mono       chart header readouts, selected node primary
-       T6  34  650  mono       exactly one: the system p99
+     T1  11  500  uppercase  labels, eyebrows, axis captions
+     T2  12  400             secondary prose, help text, tick values
+     T3  14  400             body default, node name, list rows  [BASE]
+     T4  16  600  mono       workhorse numeric: node primary, stat values
+     T5  22  600  mono       chart header readouts, selected node primary
+     T6  34  600  mono       exactly one: the system p99
 
      The base step is 14px rather than the 13px a dense professional tool
      would use. This is read, not scanned.
@@ -109,11 +216,11 @@
   --lh-num: 1.15;
   --lh-hero: 1;
 
-  /* Three weights. 450 reads lighter and friendlier than 500 on a light
-     background, where type appears optically heavier than on a dark one. */
-  --fw-body: 450;
-  --fw-med: 550;
-  --fw-num: 650;
+  /* Three weights, matched to the files we ship: 400 body, 500 labels,
+     600 numbers. A half-step like 450 would silently fall back to 400. */
+  --fw-body: 400;
+  --fw-med: 500;
+  --fw-num: 600;
 
   /* ------------------------------------------------------------------------
      Spacing — strict 4px grid, seven tokens.
@@ -136,21 +243,21 @@
 
   /* Radii. Soft enough to feel welcoming, tight enough to stay adult.
        2    small filled marks (8px swatches), where 6 would read as a circle
-       6    inputs, small chips, meter troughs
-       8    buttons
-       10   panels, nodes
-       14   large containers, modals
+       8    inputs, small chips, meter troughs
+       10   buttons
+       12   panels, nodes
+       16   large containers, modals
        999  pills and circular thumbs */
   /* A small filled mark — an 8px legend swatch or band sample — where the
      6px --r-sm would round it almost to a circle and stop reading as a
      square. Proportional to the mark, not to a panel. */
   --r-mark: 2px;
-  --r-sm: 6px;
-  --r-btn: 8px;
-  --r-md: 10px;
-  --r-lg: 14px;
+  --r-sm: 8px;
+  --r-btn: 10px;
+  --r-md: 12px;
+  --r-lg: 16px;
   --r-pill: 999px;
-  --r-node: 10px;
+  --r-node: 12px;
 
   /* Border weights. Hairline for quiet dividers, 1.5px for a node outline
      that must hold its own against the canvas. */
@@ -179,22 +286,22 @@
   --thumb: 18px;
 
   /* Elevation. Neutral, low-opacity, never coloured, never glowing.
-     Shadow carries a warm-neutral hue at very low alpha so it sits on paper
+     Shadow carries a cool-slate hue at very low alpha so it sits on paper
      rather than looking like grey dirt. */
-  --shadow-sm: 0 1px 2px rgba(60, 50, 40, 0.16);
-  --shadow-md: 0 1px 2px rgba(60, 50, 40, 0.05), 0 4px 10px rgba(60, 50, 40, 0.07);
-  --shadow-lg: 0 2px 4px rgba(60, 50, 40, 0.05), 0 12px 28px rgba(60, 50, 40, 0.1);
+  --shadow-sm: 0 1px 2px rgba(20, 40, 55, 0.14);
+  --shadow-md: 0 1px 2px rgba(20, 40, 55, 0.05), 0 4px 12px rgba(20, 40, 55, 0.08);
+  --shadow-lg: 0 2px 4px rgba(20, 40, 55, 0.05), 0 12px 28px rgba(20, 40, 55, 0.12);
 
-  /* The highlight a light sweep carries across a surface. Warm-neutral like
+  /* The highlight a light sweep carries across a surface. Cool-neutral like
      the shadows, and a DARK wash here because the light theme's chrome is
      near white: a white sheen on white is invisible. */
-  --sheen: rgba(60, 50, 40, 0.14);
+  --sheen: rgba(20, 40, 55, 0.12);
 
-  /* Scrim behind a temporary surface. The same warm-neutral as the shadows,
+  /* Scrim behind a temporary surface. The same cool-neutral as the shadows,
      kept deliberately light: it marks the layer above as active without
      hiding the running simulation, which is the thing the student opened
      that layer to understand. */
-  --scrim: rgba(60, 50, 40, 0.16);
+  --scrim: rgba(20, 40, 55, 0.18);
 
   /* The 1px inset highlight along the top edge of a button.
      A literal white was fine while there was one theme; on a dark ground the
@@ -209,7 +316,7 @@
      the shaded underside instead, which is the same physics seen from the
      other side. Dark mode leaves this off, where the bright top edge already
      carries it. */
-  --bevel-under: rgba(60, 50, 40, 0.13);
+  --bevel-under: rgba(20, 40, 55, 0.12);
 
   /* All motion, 120-200ms: interactive transitions, the panel slides in
      App.css, and the state-change colour eases. Nothing animates longer
@@ -221,36 +328,36 @@
   --ease-out: cubic-bezier(0.16, 0.84, 0.44, 1);
 
   /* ------------------------------------------------------------------------
-     Neutral ramp — warm paper.
-     Hue 75 (warm yellow-orange) at very low chroma. Warmth is what separates
-     "paper" from "clinical white"; the chroma is kept under 0.014 so it never
-     reads as beige or as a colour cast.
+     Neutral ramp — cool slate.
+     Hue 230 (blue-grey) at very low chroma. Coolness is what separates this
+     from the original warm paper; the chroma is kept under 0.014 so it never
+     reads as a colour cast.
 
      Note --surface is LIGHTER than --bg. Panels lift off the canvas toward
      white rather than darkening toward grey, which is what makes the layout
      feel open instead of boxed-in.
      ------------------------------------------------------------------------ */
-  --bg: #faf7f3; /* app canvas / ground */
-  --surface: #fffdfa; /* chrome panels: palette, inspector, metrics */
-  --surface-2: #f7f3ee; /* inputs, recessed rows, meter troughs */
-  --surface-3: #f0ece5; /* pressed states, table header bands */
-  --border: #e8e2da; /* hairline divider — 1.20:1 on bg, deliberately quiet */
-  --border-strong: #8e8a83; /* button and input outline — 3.21:1 on bg */
+  --bg: #e2e7eb; /* app canvas / ground */
+  --surface: #f8fbfc; /* chrome panels: palette, inspector, metrics */
+  --surface-2: #d8dee3; /* inputs, recessed rows, meter troughs */
+  --surface-3: #ccd4da; /* pressed states, table header bands */
+  --border: #c5ced4; /* hairline divider — deliberately quiet */
+  --border-strong: #66747f; /* button and input outline — >= 3:1 on bg */
 
   /* Canvas rules. Both must recede almost to invisibility: a ruled field
      reads as a workspace, a loud one competes with the diagram. */
-  --grid-line: #f1ece6; /* 32px hairline rules — 1.10:1 on bg */
-  --grid-major: #e7e2dc; /* every 4th rule, 128px — 1.21:1 on bg */
+  --grid-line: #d9dfe3; /* 32px hairline rules */
+  --grid-major: #ced5da; /* every 4th rule, 128px */
   --grid-dot: var(--grid-line); /* retained alias */
 
   /* Neutral line ramp for edges, ports, arrowheads and neutral chart series.
      Chart series are distinguished by weight and lightness, never by hue. */
-  --line: #cfc8bf; /* idle edge */
-  --line-2: #b3aba1; /* hover edge, arrowheads */
-  --line-3: #948c82; /* axis rules */
-  --line-4: #6f6a63; /* p50 series, sparkline stroke */
-  --line-5: #545049;
-  --track: #ece7e0; /* meter troughs */
+  --line: #c2ccd3; /* idle edge */
+  --line-2: #9eacb5; /* hover edge, arrowheads */
+  --line-3: #6e7c86; /* axis rules */
+  --line-4: #67747d; /* p50 series, sparkline stroke */
+  --line-5: #4d5961;
+  --track: #e4ecf0; /* meter troughs */
 
   /* Two categorical hues, used ONLY to separate failure reasons in the
      breakdown, where five causes must be told apart at a glance.
@@ -259,42 +366,31 @@
   --cat-blue: #1f6099;
 
   /* ------------------------------------------------------------------------
-     Text ramp. Cool-leaning ink (hue 264) against warm paper — the slight
-     temperature opposition is what makes the text read as ink on stock
-     rather than as a wash of the same colour.
-
-     Measured, on --bg / --surface / --surface-2 / --surface-3:
-       --text        14.60 / 15.35 / 14.11 / 13.24
-       --text-dim     6.71 /  7.06 /  6.49 /  6.08
-       --text-faint   5.17 /  5.43 /  5.00 /  4.69
-     ALL THREE pass AA body text (4.5:1) on ALL FOUR surfaces. --text-faint
-     was darkened specifically so it is never a trap: there is no surface in
-     this app on which it silently fails.
+     Text ramp. Cool ink on cool slate. Contrast is asserted in
+     theme.contrast.test.ts rather than estimated here.
      ------------------------------------------------------------------------ */
-  --text: #1e242e;
-  --text-dim: #525862;
-  --text-faint: #646972;
+  --text: #152028;
+  --text-dim: #4a5560;
+  --text-faint: #5c6872;
 
   /* On a saturated fill (accent, danger) text is always white. */
   --text-on-fill: #ffffff;
 
   /* ------------------------------------------------------------------------
-     Accent — a single warm-leaning indigo. Four permitted uses, all meaning
-     "you did this": the focus ring, selection, the slider fill, .btn-primary.
+     Accent — a single teal. Four permitted uses, all meaning "you did this":
+     the focus ring, selection, the slider fill, .btn-primary.
      A data series may never wear the selection hue.
 
-     Measured: --accent as text on --bg 5.78:1 (AA body).
-               white on --accent 6.17:1, on hover 7.61:1, on press 9.32:1.
-               --accent against the palest kind fill 5.42:1, so the selection
-               ring is unmistakable on every node in the system.
+     Contrast is asserted in theme.contrast.test.ts: accent as text on --bg,
+     white on accent, and accent-ink on accent-soft all clear AA.
      ------------------------------------------------------------------------ */
-  --accent: #325cbd;
-  --accent-hover: #2a4fa5;
-  --accent-press: #23438c;
+  --accent: #0c6d7a;
+  --accent-hover: #0a5c67;
+  --accent-press: #084b54;
   --accent-fg: #ffffff;
-  --accent-soft: #e3edff; /* tinted chip background; --text on it = 13.23:1 */
-  --accent-ink: #2d5277; /* text on --accent-soft = 6.90:1 */
-  --accent-ring: rgba(50, 92, 189, 0.32); /* focus halo, flat not glowing */
+  --accent-soft: #dceff2;
+  --accent-ink: #1a5560;
+  --accent-ring: rgba(12, 109, 122, 0.32); /* focus halo, flat not glowing */
 
   /* ------------------------------------------------------------------------
      Semantic metric states.
@@ -316,9 +412,9 @@
      --warn is a dark bronze, not a yellow. A yellow that passes 4.5:1 on
      paper does not exist; this is the honest answer.
      ------------------------------------------------------------------------ */
-  --ok: #187a3b;
+  --ok: #146c38;
   --warn: #945500;
-  --danger: #c52b30;
+  --danger: #be272c;
 
   --ok-mark: #319751;
   --warn-mark: #c57800;
@@ -638,16 +734,16 @@
   --ann-12-ink: var(--text-dim);
 
   /* ------------------------------------------------------------------------
-     Type stacks. System-first: the OS UI font is the one a student's eye is
-     already calibrated to, it needs no network request, and it never causes
-     a layout shift. No web font is loaded.
+     Type stacks. Plus Jakarta Sans for the UI, IBM Plex Mono for every
+     number, Kalam for handwritten notes. Each stack ends in a system
+     fallback so a machine that has not loaded the webfont still renders.
      ------------------------------------------------------------------------ */
   --sans:
-    ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Inter, Roboto,
-    'Helvetica Neue', Arial, sans-serif;
+    'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Inter,
+    Roboto, 'Helvetica Neue', Arial, sans-serif;
   --mono:
-    ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, 'Liberation Mono',
-    monospace;
+    'IBM Plex Mono', ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas,
+    'Liberation Mono', monospace;
 
   /* Annotation faces.
 
@@ -655,13 +751,10 @@
      face is what says so at a glance. These are offered per note; the default
      stays --sans.
 
-     All three are system-stack only, with no webfont fetch. A hand-drawn face
-     is decoration, and blocking first paint on a font download to get it
-     would be a poor trade on a page whose point is a live simulation. Each
-     stack ends in a generic family that always resolves, so a machine with
-     none of the named faces still renders something sane rather than falling
-     back to the UI sans and quietly losing the distinction. */
-  --hand: 'Caveat', 'Segoe Print', 'Bradley Hand', Chalkboard, 'Comic Neue', cursive;
+     Each stack ends in a generic family that always resolves, so a machine
+     with none of the named faces still renders something sane rather than
+     falling back to the UI sans and quietly losing the distinction. */
+  --hand: 'Kalam', 'Segoe Print', 'Bradley Hand', Chalkboard, 'Comic Neue', cursive;
   --serif: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
 
   color-scheme: light;
@@ -697,49 +790,44 @@
 :root[data-theme='dark'] {
   color-scheme: dark;
 
-  /* Ground and chrome. Warm-tinted neutrals rather than a cold blue-grey, so
-     the dark theme reads as the same product as the warm-paper light one. */
-  --bg: #16151a;
-  --surface: #1d1c22;
-  --surface-2: #25242b;
-  --surface-3: #2f2e36;
-  --border: #302f38; /* 1.37:1 on bg, matching the light theme's quiet hairline */
-  --border-strong: #6a6878; /* button and input outline — 3.11:1 on surface */
+  /* Ground and chrome. Cool navy rather than a warm grey, so the dark theme
+     reads as the same product as the cool-slate light one. */
+  --bg: #0e1418;
+  --surface: #151c22;
+  --surface-2: #1c252c;
+  --surface-3: #253038;
+  --border: #2a343c;
+  --border-strong: #6d7a86;
 
-  --grid-line: #1e1d23; /* 1.08:1 on bg */
-  --grid-major: #26252c; /* 1.19:1 on bg */
+  --grid-line: #161e24;
+  --grid-major: #1d262d;
   --grid-dot: var(--grid-line);
 
-  --line: #4a4855;
-  --line-2: #615f6e;
-  --line-3: #807d8c;
-  --line-4: #a29fae;
-  --line-5: #c4c1cf;
-  --track: #2b2a32;
+  --line: #3d4a53;
+  --line-2: #55636c;
+  --line-3: #74828b;
+  --line-4: #97a4ad;
+  --line-5: #bcc7ce;
+  --track: #223038;
 
-  /* Text ramp. Ratios on --bg / --surface:
-       --text        15.23 / 14.19
-       --text-dim     7.52 /  7.01
-       --text-faint   5.38 /  5.01
-     All three clear AA; --text and --text-dim clear AAA. */
-  --text: #eceaf2;
-  --text-dim: #a8a5b4;
-  --text-faint: #8d8a99;
+  /* Text ramp. Contrast is asserted in theme.contrast.test.ts. */
+  --text: #e8eef2;
+  --text-dim: #9aa6b0;
+  --text-faint: #7e8b96;
   /* Ink used ON a saturated fill, so it inverts to the dark ground. */
-  --text-on-fill: #16151a;
+  --text-on-fill: #0e1418;
 
   --cat-violet: #b491dd;
   --cat-blue: #78aee0;
 
-  /* Accent. Lightened until it carries text on the dark ground: 6.59:1 on
-     --bg, where the light theme's blue would have been 2.4:1 and unreadable. */
-  --accent: #6f9bf0;
-  --accent-hover: #87acf5;
-  --accent-press: #5b86dc;
-  --accent-fg: #16151a;
-  --accent-soft: #1b2740;
-  --accent-ink: #a9c6ff; /* on --accent-soft = 8.65:1 */
-  --accent-ring: rgba(111, 155, 240, 0.38);
+  /* Accent. Lightened until it carries text on the dark ground. */
+  --accent: #5ec8d8;
+  --accent-hover: #7ad4e2;
+  --accent-press: #47b3c4;
+  --accent-fg: #0e1418;
+  --accent-soft: #143038;
+  --accent-ink: #9fe0ea;
+  --accent-ring: rgba(94, 200, 216, 0.38);
 
   /* Status. Each clears 4.5:1 on both --bg and --surface, and each -soft
      plate carries its own ink above 4.5:1. */
@@ -917,39 +1005,39 @@
   :root:not([data-theme='light']) {
     color-scheme: dark;
 
-    --bg: #16151a;
-    --surface: #1d1c22;
-    --surface-2: #25242b;
-    --surface-3: #2f2e36;
-    --border: #302f38;
-    --border-strong: #6a6878;
+    --bg: #0e1418;
+    --surface: #151c22;
+    --surface-2: #1c252c;
+    --surface-3: #253038;
+    --border: #2a343c;
+    --border-strong: #6d7a86;
 
-    --grid-line: #1e1d23;
-    --grid-major: #26252c;
+    --grid-line: #161e24;
+    --grid-major: #1d262d;
     --grid-dot: var(--grid-line);
 
-    --line: #4a4855;
-    --line-2: #615f6e;
-    --line-3: #807d8c;
-    --line-4: #a29fae;
-    --line-5: #c4c1cf;
-    --track: #2b2a32;
+    --line: #3d4a53;
+    --line-2: #55636c;
+    --line-3: #74828b;
+    --line-4: #97a4ad;
+    --line-5: #bcc7ce;
+    --track: #223038;
 
-    --text: #eceaf2;
-    --text-dim: #a8a5b4;
-    --text-faint: #8d8a99;
-    --text-on-fill: #16151a;
+    --text: #e8eef2;
+    --text-dim: #9aa6b0;
+    --text-faint: #7e8b96;
+    --text-on-fill: #0e1418;
 
     --cat-violet: #b491dd;
     --cat-blue: #78aee0;
 
-    --accent: #6f9bf0;
-    --accent-hover: #87acf5;
-    --accent-press: #5b86dc;
-    --accent-fg: #16151a;
-    --accent-soft: #1b2740;
-    --accent-ink: #a9c6ff;
-    --accent-ring: rgba(111, 155, 240, 0.38);
+    --accent: #5ec8d8;
+    --accent-hover: #7ad4e2;
+    --accent-press: #47b3c4;
+    --accent-fg: #0e1418;
+    --accent-soft: #143038;
+    --accent-ink: #9fe0ea;
+    --accent-ring: rgba(94, 200, 216, 0.38);
 
     --ok: #4ac06e;
     --warn: #d79a2b;

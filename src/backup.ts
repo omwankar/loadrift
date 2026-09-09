@@ -17,9 +17,9 @@ import { downloadBlob } from './imageExport';
  * file may be truncated, hand-edited, or from a future version.
  * ------------------------------------------------------------------ */
 
-export const BACKUP_APP = 'breakscale-backup';
+export const BACKUP_APP = 'loadrift-backup';
 export const BACKUP_VERSION = 1;
-export const BACKUP_EXT = '.breakscale-backup.json';
+export const BACKUP_EXT = '.loadrift-backup.json';
 
 /**
  * The keys a backup carries.
@@ -29,10 +29,10 @@ export const BACKUP_EXT = '.breakscale-backup.json';
  * should never travel cannot be picked up by accident.
  */
 export const BACKED_UP_KEYS = [
-  'breakscale.designs.v1',
-  'breakscale.preferences.v1',
-  'breakscale.layout.v1',
-  'breakscale.session.v1',
+  'loadrift.designs.v1',
+  'loadrift.preferences.v1',
+  'loadrift.layout.v1',
+  'loadrift.session.v1',
 ] as const;
 
 export interface BackupFile {
@@ -75,7 +75,7 @@ export function downloadBackup(now = new Date()): void {
   ].join('-');
   downloadBlob(
     new Blob([buildBackup()], { type: 'application/json' }),
-    `breakscale-${day}${BACKUP_EXT}`,
+    `loadrift-${day}${BACKUP_EXT}`,
   );
 }
 
@@ -96,14 +96,14 @@ function acceptable(key: string, value: string): boolean {
     return false;
   }
 
-  if (key === 'breakscale.designs.v1') {
+  if (key === 'loadrift.designs.v1') {
     if (!Array.isArray(parsed)) return false;
     // Every entry must carry a topology the engine can actually run. One
     // bad row is dropped by the store's own loader; a value that is not a
     // list at all would make the shelf unreadable.
     return true;
   }
-  if (key === 'breakscale.session.v1') {
+  if (key === 'loadrift.session.v1') {
     if (!parsed || typeof parsed !== 'object') return false;
     const t = (parsed as { topology?: unknown }).topology;
     if (!isTopology(t)) return false;
@@ -138,18 +138,18 @@ export function restoreBackup(text: string): BackupResult {
     };
   }
   if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) {
-    return { ok: false, error: 'That file does not hold a Breakscale backup.' };
+    return { ok: false, error: 'That file does not hold a Loadrift backup.' };
   }
 
   const f = parsed as Partial<BackupFile>;
   if (f.app !== BACKUP_APP) {
-    return { ok: false, error: 'That file does not hold a Breakscale backup.' };
+    return { ok: false, error: 'That file does not hold a Loadrift backup.' };
   }
   const version = typeof f.version === 'number' ? f.version : 0;
   if (version > BACKUP_VERSION) {
     return {
       ok: false,
-      error: 'That backup was made by a newer version of Breakscale.',
+      error: 'That backup was made by a newer version of Loadrift.',
     };
   }
   if (!f.data || typeof f.data !== 'object') {

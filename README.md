@@ -1,23 +1,19 @@
 <p align="center">
-  <img src="docs/banner.png" alt="Breakscale: build a system, load it until it breaks, watch why" width="100%" />
+  <img src="docs/banner.png" alt="Loadrift: build a system, load it until it breaks, watch why" width="100%" />
 </p>
 
 <h4 align="center">
-  <a href="https://breakscale.tech">Try it</a> |
-  <a href="https://docs.breakscale.tech">Documentation</a> |
+  <a href="https://loadrift.vercel.app">Try it</a> |
+  <a href="https://github.com/omwankar/loadrift">Documentation</a> |
   <a href="CONTRIBUTING.md">Contributing</a>
 </h4>
 
 <p align="center">
-  <a href="https://github.com/xevrion/breakscale/actions/workflows/ci.yml"><img src="https://github.com/xevrion/breakscale/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
-  <a href="https://github.com/xevrion/breakscale/stargazers"><img src="https://img.shields.io/github/stars/xevrion/breakscale?style=flat&color=blue" alt="Stars" /></a>
-  <a href="https://github.com/xevrion/breakscale/forks"><img src="https://img.shields.io/github/forks/xevrion/breakscale?style=flat&color=blue" alt="Forks" /></a>
-  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT licensed" /></a>
+  <a href="https://github.com/omwankar/loadrift/actions/workflows/ci.yml"><img src="https://github.com/omwankar/loadrift/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
+  <a href="https://github.com/omwankar/loadrift/stargazers"><img src="https://img.shields.io/github/stars/omwankar/loadrift?style=flat&color=teal" alt="Stars" /></a>
+  <a href="https://github.com/omwankar/loadrift/forks"><img src="https://img.shields.io/github/forks/omwankar/loadrift?style=flat&color=teal" alt="Forks" /></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-teal.svg" alt="MIT licensed" /></a>
   <a href="CONTRIBUTING.md"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs welcome" /></a>
-</p>
-
-<p align="center">
-  <a href="https://trendshift.io/repositories/194049" target="_blank" rel="noopener noreferrer"><img src="https://trendshift.io/api/badge/trendshift/repositories/194049/daily?language=TypeScript" alt="xevrion/breakscale | Trendshift" width="250" height="55" /></a>
 </p>
 
 <div align="center">
@@ -29,7 +25,7 @@
   </p>
 </div>
 
-Breakscale is a system design simulator for learning how distributed systems behave under load.
+Loadrift is a system design simulator for learning how distributed systems behave under load.
 You place components on a canvas, wire them together, then drag a slider and watch real queueing
 behaviour emerge: latency percentiles climbing, queues filling, circuit breakers tripping, whole
 systems collapsing into retry storms.
@@ -37,13 +33,16 @@ systems collapsing into retry storms.
 Every number comes from an actual discrete-event simulation. Nothing is faked, approximated, or
 animated to look plausible.
 
+This is a customized fork of [Breakscale](https://github.com/xevrion/breakscale) by Yash Bavadiya,
+with a new name, teal colour theme, and typefaces.
+
 ## Why this exists
 
 Most system design material is static diagrams and rules of thumb. "Add a cache." "Use a queue."
 It is hard to build intuition for why p99 latency falls off a cliff as utilisation passes 80
 percent, or how a short timeout with retries turns one slow database into a total outage.
 
-Breakscale runs the experiment instead. Load the Retry Storm example, drag the traffic up, and
+Loadrift runs the experiment instead. Load the Retry Storm example, drag the traffic up, and
 watch goodput fall to zero while the database still runs flat out, because every request that
 completes has already been abandoned by a caller that gave up.
 
@@ -52,8 +51,8 @@ completes has already been abandoned by a caller that gave up.
 You need [Bun](https://bun.sh).
 
 ```bash
-git clone https://github.com/xevrion/breakscale.git
-cd breakscale
+git clone https://github.com/omwankar/loadrift.git
+cd loadrift
 bun install
 bun dev
 ```
@@ -161,11 +160,11 @@ rendering predictable.
 
 ## Star history
 
-<a href="https://star-history.com/#xevrion/breakscale&Date">
+<a href="https://star-history.com/#omwankar/loadrift&Date">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=xevrion/breakscale&type=Date&theme=dark" />
-    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=xevrion/breakscale&type=Date" />
-    <img alt="Star history for xevrion/breakscale" src="https://api.star-history.com/svg?repos=xevrion/breakscale&type=Date" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=omwankar/loadrift&type=Date&theme=dark" />
+    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=omwankar/loadrift&type=Date" />
+    <img alt="Star history for omwankar/loadrift" src="https://api.star-history.com/svg?repos=omwankar/loadrift&type=Date" />
   </picture>
 </a>
 
@@ -173,8 +172,13 @@ rendering predictable.
 
 [MIT](LICENSE)
 
-The bundled Caveat webfont in `public/fonts/Caveat/` is **not** covered by the
-MIT licence. It is licensed separately under the
-[SIL Open Font License 1.1](public/fonts/Caveat/OFL.txt), which ships alongside
-the font file as that licence requires.
-Copyright 2014 The Caveat Project Authors.
+Loadrift is a fork of [Breakscale](https://github.com/xevrion/breakscale). The original copyright
+is retained in [LICENSE](LICENSE).
+
+The bundled webfonts in `public/fonts/` are **not** covered by the MIT licence. They are licensed
+separately under the [SIL Open Font License 1.1](https://scripts.sil.org/OFL), which ships
+alongside each font family as that licence requires:
+
+- Plus Jakarta Sans — Copyright 2020 The Plus Jakarta Sans Project Authors
+- IBM Plex Mono — Copyright 2017 IBM Corp. and IBM Plex Mono authors
+- Kalam — Copyright 2014 Indian Type Foundry

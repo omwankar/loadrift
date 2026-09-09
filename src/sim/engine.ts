@@ -36,7 +36,7 @@ const MAX_HOP_DEPTH = 32;
  *
  * The engine writes one array element per instance on every snapshot, so an
  * unbounded count is an unbounded allocation. A design does not only come from
- * the editor: a shared link, a `.breakscale` file and a restored session all
+ * the editor: a shared link, a `.loadrift` file and a restored session all
  * carry `instances` straight through, and `isTopology` does not police it.
  */
 const MAX_INSTANCES = 512;

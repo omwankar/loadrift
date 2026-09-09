@@ -5,7 +5,7 @@ import type { NodeStats, Topology } from './types';
 
 /*
  * `regions` and `activeRegion` are not among the nine config numbers
- * `isTopology` checks, so a shared link, a `.breakscale` file and a restored
+ * `isTopology` checks, so a shared link, a `.loadrift` file and a restored
  * session carry whatever they say into the region switch.
  */
 

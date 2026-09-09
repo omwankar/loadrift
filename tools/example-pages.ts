@@ -242,7 +242,7 @@ function page(preset: Preset): string {
   }
 
   parts.push(
-    '<Card title="Open this example" icon="play" href="https://breakscale.tech">',
+    '<Card title="Open this example" icon="play" href="https://loadrift.vercel.app">',
     `  Load **${mdx(preset.name)}** from the Examples menu and drag the traffic slider yourself.`,
     '</Card>',
     '',

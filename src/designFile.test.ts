@@ -101,18 +101,18 @@ describe('designFileName', () => {
   const day = new Date(2026, 7, 28);
 
   it('names the file from the design and the date', () => {
-    expect(designFileName('Netflix', day)).toBe('netflix-2026-08-28.breakscale');
+    expect(designFileName('Netflix', day)).toBe('netflix-2026-08-28.loadrift');
   });
 
   it('falls back to "design" when there is no name', () => {
-    expect(designFileName(null, day)).toBe('design-2026-08-28.breakscale');
+    expect(designFileName(null, day)).toBe('design-2026-08-28.loadrift');
   });
 
   it('strips anything a file system or a shell would choke on', () => {
     expect(designFileName('../../etc/passwd; rm -rf /', day)).toBe(
-      'etc-passwd-rm-rf-2026-08-28.breakscale',
+      'etc-passwd-rm-rf-2026-08-28.loadrift',
     );
-    expect(designFileName('   ', day)).toBe('design-2026-08-28.breakscale');
+    expect(designFileName('   ', day)).toBe('design-2026-08-28.loadrift');
   });
 });
 
@@ -143,7 +143,7 @@ describe('hostile and damaged input', () => {
     );
     expect(result.ok).toBe(false);
     if (result.ok) return;
-    expect(result.error).toMatch(/Breakscale design/);
+    expect(result.error).toMatch(/Loadrift design/);
   });
 
   it('rejects a file written by a newer version', () => {

@@ -171,18 +171,18 @@ const SEC_HALF = (NODE_W - PAD_X * 2 - 14) / 2;
  * multiplying its length by a constant — see textMetrics.ts for the sizes
  * that guesswork produced and why it could not be made to work.
  */
-const VAL_STYLE: TextStyle = { size: 12, weight: 650, family: 'mono' };
-const VAL_PRIMARY_STYLE: TextStyle = { size: 16, weight: 650, family: 'mono' };
-const VAL_SELECTED_STYLE: TextStyle = { size: 22, weight: 650, family: 'mono' };
+const VAL_STYLE: TextStyle = { size: 12, weight: 600, family: 'mono' };
+const VAL_PRIMARY_STYLE: TextStyle = { size: 16, weight: 600, family: 'mono' };
+const VAL_SELECTED_STYLE: TextStyle = { size: 22, weight: 600, family: 'mono' };
 /** 11px uppercase, letter-spaced 0.06em = 0.66px per character. */
 const CAP_STYLE: TextStyle = {
   size: 11,
-  weight: 650,
+  weight: 600,
   family: 'sans',
   tracking: 0.66,
   uppercase: true,
 };
-const NAME_STYLE: TextStyle = { size: 14, weight: 450, family: 'sans' };
+const NAME_STYLE: TextStyle = { size: 14, weight: 400, family: 'sans' };
 
 /** The dx between a cell's value and label tspans. */
 const CELL_GAP_W = 3;
@@ -1528,7 +1528,7 @@ const GLYPH_Y = HEAD_CENTER_Y - GLYPH_INK_CENTER * GLYPH_SCALE;
  *
  * The badge is mono at 12px, the same style the badge itself renders in.
  */
-const BADGE_STYLE: TextStyle = { size: 12, weight: 650, family: 'mono' };
+const BADGE_STYLE: TextStyle = { size: 12, weight: 600, family: 'mono' };
 
 /**
  * `badgeText` is the instance-count badge as actually rendered ("17x+1"),
@@ -1882,7 +1882,7 @@ const NOTE_HANDLES = [
   { dir: 'se', corner: true },
 ] as const;
 
-const SEC_LABEL_STYLE: TextStyle = { size: 12, weight: 550, family: 'sans' };
+const SEC_LABEL_STYLE: TextStyle = { size: 12, weight: 500, family: 'sans' };
 const SEC_LABEL_PAD_X = 10;
 const SEC_LABEL_H = 24;
 /** Minimum plate width, so an empty label still leaves a grab tab. */

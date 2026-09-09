@@ -85,9 +85,9 @@ describe('saving', () => {
     saveDesign('older', topo());
     // savedAt is a millisecond clock, so two saves in the same tick would
     // tie. Nudge the first one back to make the ordering observable.
-    const raw = JSON.parse(localStorage.getItem('breakscale.designs.v1')!);
+    const raw = JSON.parse(localStorage.getItem('loadrift.designs.v1')!);
     raw[0].savedAt -= 10_000;
-    localStorage.setItem('breakscale.designs.v1', JSON.stringify(raw));
+    localStorage.setItem('loadrift.designs.v1', JSON.stringify(raw));
     saveDesign('newer', topo());
     expect(listDesigns().map((d) => d.name)).toEqual(['newer', 'older']);
   });
@@ -97,10 +97,10 @@ describe('the shelf is finite', () => {
   it('drops the oldest and says which, rather than losing it quietly', () => {
     for (let i = 0; i < MAX_SAVED; i += 1) {
       saveDesign(`design ${i}`, topo());
-      const raw = JSON.parse(localStorage.getItem('breakscale.designs.v1')!);
+      const raw = JSON.parse(localStorage.getItem('loadrift.designs.v1')!);
       // Age every existing entry, so the ordering is deterministic.
       for (const e of raw) e.savedAt -= 1000;
-      localStorage.setItem('breakscale.designs.v1', JSON.stringify(raw));
+      localStorage.setItem('loadrift.designs.v1', JSON.stringify(raw));
     }
     expect(listDesigns()).toHaveLength(MAX_SAVED);
 
@@ -120,15 +120,15 @@ describe('reading a shelf that cannot be trusted', () => {
     ['an object where a list belongs', '{"a":1}'],
     ['null', 'null'],
   ])('survives %s', (_label, stored) => {
-    localStorage.setItem('breakscale.designs.v1', stored);
+    localStorage.setItem('loadrift.designs.v1', stored);
     expect(loadDesigns()).toEqual([]);
   });
 
   it('drops one corrupt entry without losing the rest', () => {
     saveDesign('good', topo());
-    const raw = JSON.parse(localStorage.getItem('breakscale.designs.v1')!);
+    const raw = JSON.parse(localStorage.getItem('loadrift.designs.v1')!);
     raw.push({ id: 'broken', name: 'broken', savedAt: 1, topology: { nodes: 'no' } });
-    localStorage.setItem('breakscale.designs.v1', JSON.stringify(raw));
+    localStorage.setItem('loadrift.designs.v1', JSON.stringify(raw));
     const list = listDesigns();
     expect(list).toHaveLength(1);
     expect(list[0]!.name).toBe('good');
@@ -140,7 +140,7 @@ describe('reading a shelf that cannot be trusted', () => {
     const bad = topo();
     bad.edges[0]!.to = 'does-not-exist';
     localStorage.setItem(
-      'breakscale.designs.v1',
+      'loadrift.designs.v1',
       JSON.stringify([{ id: 'x', name: 'x', savedAt: 1, topology: bad }]),
     );
     expect(loadDesigns()).toEqual([]);
@@ -152,7 +152,7 @@ describe('reading a shelf that cannot be trusted', () => {
       { id: 'n', kind: 'note', text: 'hi', x: 0, y: 0, width: 200, color: 'red;evil' },
     ];
     localStorage.setItem(
-      'breakscale.designs.v1',
+      'loadrift.designs.v1',
       JSON.stringify([{ id: 'x', name: 'x', savedAt: 1, topology: t }]),
     );
     const back = loadDesigns()[0]!;
@@ -161,7 +161,7 @@ describe('reading a shelf that cannot be trusted', () => {
 
   it('names an entry that lost its name rather than showing a blank row', () => {
     localStorage.setItem(
-      'breakscale.designs.v1',
+      'loadrift.designs.v1',
       JSON.stringify([{ id: 'x', name: '   ', savedAt: 1, topology: topo() }]),
     );
     expect(loadDesigns()[0]!.name).toBe('Untitled');

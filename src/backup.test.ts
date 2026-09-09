@@ -20,7 +20,7 @@ describe('building a backup', () => {
     saveDesign('kept', topo());
     const body = JSON.parse(buildBackup());
     expect(body.app).toBe(BACKUP_APP);
-    expect(body.data['breakscale.designs.v1']).toContain('kept');
+    expect(body.data['loadrift.designs.v1']).toContain('kept');
   });
 
   it('carries every key it claims to, when they are present', () => {
@@ -32,7 +32,7 @@ describe('building a backup', () => {
   it('omits a key that was never written rather than storing null', () => {
     saveDesign('only this', topo());
     const body = JSON.parse(buildBackup());
-    expect(body.data).not.toHaveProperty('breakscale.layout.v1');
+    expect(body.data).not.toHaveProperty('loadrift.layout.v1');
   });
 
   it('makes a backup of an empty browser without failing', () => {
@@ -48,7 +48,7 @@ describe('restoring', () => {
     localStorage.clear();
     const r = restoreBackup(backup);
     expect(r.ok).toBe(true);
-    expect(localStorage.getItem('breakscale.designs.v1')).toContain('original');
+    expect(localStorage.getItem('loadrift.designs.v1')).toContain('original');
   });
 
   it('replaces rather than merges, and says which keys it wrote', () => {
@@ -60,8 +60,8 @@ describe('restoring', () => {
     saveDesign('already here', topo());
     const r = restoreBackup(backup);
     expect(r.ok).toBe(true);
-    if (r.ok) expect(r.restored).toContain('breakscale.designs.v1');
-    const now = localStorage.getItem('breakscale.designs.v1')!;
+    if (r.ok) expect(r.restored).toContain('loadrift.designs.v1');
+    const now = localStorage.getItem('loadrift.designs.v1')!;
     expect(now).toContain('from the backup');
     expect(now).not.toContain('already here');
   });
@@ -71,7 +71,7 @@ describe('restoring', () => {
     ['not json', '{{{'],
     ['a list', '[]'],
     ['someone else’s file', '{"app":"figma","data":{}}'],
-    ['no contents', '{"app":"breakscale-backup","version":1}'],
+    ['no contents', '{"app":"loadrift-backup","version":1}'],
   ])('refuses %s with a sentence rather than a throw', (_label, text) => {
     const r = restoreBackup(text);
     expect(r.ok).toBe(false);
@@ -95,30 +95,30 @@ describe('restoring', () => {
         app: BACKUP_APP,
         version: 1,
         data: {
-          'breakscale.session.v1': JSON.stringify({ topology: bad }),
-          'breakscale.preferences.v1': '{"tooltips":true}',
+          'loadrift.session.v1': JSON.stringify({ topology: bad }),
+          'loadrift.preferences.v1': '{"tooltips":true}',
         },
       }),
     );
     expect(r.ok).toBe(true);
-    expect(localStorage.getItem('breakscale.session.v1')).toBeNull();
-    expect(localStorage.getItem('breakscale.preferences.v1')).not.toBeNull();
+    expect(localStorage.getItem('loadrift.session.v1')).toBeNull();
+    expect(localStorage.getItem('loadrift.preferences.v1')).not.toBeNull();
   });
 
   it('leaves the browser untouched when nothing in the file is readable', () => {
     saveDesign('mine', topo());
-    const before = localStorage.getItem('breakscale.designs.v1');
+    const before = localStorage.getItem('loadrift.designs.v1');
     const r = restoreBackup(
       JSON.stringify({ app: BACKUP_APP, version: 1, data: { 'x.y': 'z' } }),
     );
     expect(r.ok).toBe(false);
-    expect(localStorage.getItem('breakscale.designs.v1')).toBe(before);
+    expect(localStorage.getItem('loadrift.designs.v1')).toBe(before);
   });
 
   it('round trips a real browser exactly', () => {
     saveDesign('one', topo());
     saveDesign('two', topo());
-    localStorage.setItem('breakscale.preferences.v1', '{"tooltips":true}');
+    localStorage.setItem('loadrift.preferences.v1', '{"tooltips":true}');
     const snapshot = Object.fromEntries(
       BACKED_UP_KEYS.map((k) => [k, localStorage.getItem(k)]),
     );

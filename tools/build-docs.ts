@@ -1,7 +1,7 @@
 /**
  * Generate the documentation site's example pages into the docs repository.
  *
- *   bun run tools/build-docs.ts ../breakscale-docs
+ *   bun run tools/build-docs.ts ../loadrift-docs
  *
  * The docs live in their own repository so that the simulator's own repo does
  * not have to grant a docs host push access, but the CONTENT belongs to this

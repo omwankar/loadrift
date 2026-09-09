@@ -110,7 +110,7 @@ ${entries.map(entryHtml).join('\n')}
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>System design glossary | Breakscale</title>
+    <title>System design glossary | Loadrift</title>
     <meta
       name="description"
       content="Plain-language definitions of ${GLOSSARY.length} system design terms: latency percentiles, throughput, queueing, backpressure, sharding and more. Each explains what it means and why it matters."
@@ -120,7 +120,7 @@ ${entries.map(entryHtml).join('\n')}
 
     <meta property="og:type" content="article" />
     <meta property="og:url" content="${SITE}/glossary" />
-    <meta property="og:site_name" content="Breakscale" />
+    <meta property="og:site_name" content="Loadrift" />
     <meta property="og:title" content="System design glossary" />
     <meta
       property="og:description"
@@ -138,21 +138,21 @@ ${jsonLd()}
          reference nobody has to wait for is the whole point. */
       :root {
         color-scheme: light dark;
-        --bg: #faf7f3;
-        --surface: #fffdfa;
-        --text: #1e242e;
-        --dim: #525862;
-        --line: #e8e2da;
-        --accent: #325cbd;
+        --bg: #e2e7eb;
+        --surface: #f8fbfc;
+        --text: #152028;
+        --dim: #4a5560;
+        --line: #c5ced4;
+        --accent: #0c6d7a;
       }
       @media (prefers-color-scheme: dark) {
         :root {
-          --bg: #16151a;
-          --surface: #1d1c22;
-          --text: #eceaf2;
-          --dim: #a8a5b4;
-          --line: #302f38;
-          --accent: #6f9bf0;
+          --bg: #0e1418;
+          --surface: #151c22;
+          --text: #e8eef2;
+          --dim: #9aa6b0;
+          --line: #2a343c;
+          --accent: #5ec8d8;
         }
       }
       * { box-sizing: border-box; }
@@ -161,7 +161,7 @@ ${jsonLd()}
         padding: 2.5rem 1.25rem 4rem;
         background: var(--bg);
         color: var(--text);
-        font: 16px/1.65 ui-sans-serif, system-ui, -apple-system, 'Segoe UI',
+        font: 16px/1.65 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI',
           Roboto, sans-serif;
       }
       main { max-width: 46rem; margin: 0 auto; }
@@ -194,7 +194,7 @@ ${jsonLd()}
       <p class="lede">
         ${GLOSSARY.length} terms used in distributed systems, each explained in
         plain language with why it matters. From
-        <a href="/">Breakscale</a>, a simulator where you build a system, load
+        <a href="/">Loadrift</a>, a simulator where you build a system, load
         it until it breaks, and watch why.
       </p>
 

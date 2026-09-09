@@ -21,10 +21,10 @@ import { sanitizeAnnotations } from './sim/annotations';
 /**
  * Marker written into every exported file, and required on the way back
  * in. It is not security, it is a courtesy: a student who opens the wrong
- * JSON gets "this is not a Breakscale design" instead of a wall of field
+ * JSON gets "this is not a Loadrift design" instead of a wall of field
  * complaints about a file that was never ours to begin with.
  */
-export const DESIGN_FILE_APP = 'breakscale';
+export const DESIGN_FILE_APP = 'loadrift';
 
 /**
  * Format version of the file body.
@@ -40,7 +40,7 @@ export const DESIGN_FILE_VERSION = 1;
 /**
  * The extension every exported design carries.
  *
- * A bare `.breakscale` rather than `.breakscale.json`, following the same
+ * A bare `.loadrift` rather than `.loadrift.json`, following the same
  * choice Excalidraw makes with `.excalidraw`: the contents are JSON either
  * way, but a custom extension is what an operating system can associate with
  * an application, and it reads as a document belonging to this app rather
@@ -49,10 +49,11 @@ export const DESIGN_FILE_VERSION = 1;
  * `.json` stays accepted on import, so a file saved before this change, or
  * one a text editor helpfully renamed, still opens.
  */
-export const DESIGN_FILE_EXT = '.breakscale';
+export const DESIGN_FILE_EXT = '.loadrift';
 
 /** What the file picker will offer, which is broader than what we write. */
-export const DESIGN_FILE_ACCEPT = '.breakscale,.breakscale.json,application/json';
+export const DESIGN_FILE_ACCEPT =
+  '.loadrift,.loadrift.json,.breakscale,.breakscale.json,application/json';
 
 /** What one exported file holds. */
 export interface DesignFile {
@@ -77,7 +78,7 @@ export type DesignParseResult =
 
 /**
  * Serialise the current design, annotations included, as the text of a
- * `.breakscale` file.
+ * `.loadrift` file.
  *
  * Deep copied on the way out so the caller's live topology can never be
  * reached through the value being written, and pretty printed with two
@@ -163,12 +164,12 @@ export function parseDesignFile(text: string): DesignParseResult {
   }
 
   if (typeof parsed !== 'object' || parsed === null || Array.isArray(parsed)) {
-    return { ok: false, error: 'That file does not hold a Breakscale design.' };
+    return { ok: false, error: 'That file does not hold a Loadrift design.' };
   }
 
   const f = parsed as Partial<Record<keyof DesignFile, unknown>>;
-  if (f.app !== DESIGN_FILE_APP) {
-    return { ok: false, error: 'That file does not hold a Breakscale design.' };
+  if (f.app !== DESIGN_FILE_APP && f.app !== 'breakscale') {
+    return { ok: false, error: 'That file does not hold a Loadrift design.' };
   }
 
   const version =
@@ -177,7 +178,7 @@ export function parseDesignFile(text: string): DesignParseResult {
     return {
       ok: false,
       error:
-        'That design was saved by a newer version of Breakscale. Reload the page and try again.',
+        'That design was saved by a newer version of Loadrift. Reload the page and try again.',
     };
   }
 

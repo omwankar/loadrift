@@ -16,7 +16,7 @@ import type { VendorId } from './types';
  * should not find their AWS choice reinterpreted as an Azure size.
  * ------------------------------------------------------------------ */
 
-const STORAGE_KEY = 'breakscale.sizes.v1';
+const STORAGE_KEY = 'loadrift.sizes.v1';
 
 type SizeMap = Record<string, string>;
 

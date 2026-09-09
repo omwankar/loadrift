@@ -66,6 +66,7 @@ import { getDesign, saveDesign } from './savedDesigns';
 import { downloadBackup, restoreBackup } from './backup';
 import { PanelResizer } from './components/PanelResizer';
 import { applyTheme } from './theme/applyTheme';
+import { APP_NAME, APP_TAGLINE, GITHUB_URL } from './brand';
 import { usePresence } from './components/presence';
 import { SessionHistory, syncEngine } from './history';
 import type { HistoryEntry, HistorySnapshot } from './history';
@@ -78,7 +79,7 @@ import './App.css';
  * Persistence
  * ------------------------------------------------------------------ */
 
-const STORAGE_KEY = 'breakscale.session.v1';
+const STORAGE_KEY = 'loadrift.session.v1';
 
 /* ------------------------------------------------------------------ *
  * Layout persistence
@@ -92,7 +93,7 @@ const STORAGE_KEY = 'breakscale.session.v1';
  * never see their settings again, with nothing on screen to explain why.
  * ------------------------------------------------------------------ */
 
-const LAYOUT_KEY = 'breakscale.layout.v1';
+const LAYOUT_KEY = 'loadrift.layout.v1';
 
 /**
  * How far a sheet must be pulled down before releasing closes it.
@@ -2541,8 +2542,34 @@ export default function App() {
             voice. Two words, sentence case, no abbreviation — a student
             opening this should be able to say what it is out loud. */}
           <div className="app-brand">
-            <h1 className="app-title">Breakscale</h1>
-            <p className="app-tagline">Build it, load it, watch it break</p>
+            <span className="app-mark" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 32 32" fill="none">
+                <rect width="32" height="32" rx="8" fill="var(--accent)" />
+                <path
+                  d="M8 12 H14 V20 H8 A4 4 0 0 1 4 16 A4 4 0 0 1 8 12 Z"
+                  fill="var(--accent-fg)"
+                  opacity="0.45"
+                />
+                <rect
+                  x="14"
+                  y="12"
+                  width="5"
+                  height="8"
+                  fill="var(--accent-fg)"
+                  opacity="0.7"
+                />
+                <path
+                  d="M19 12 H22 A4 4 0 0 1 26 16 A4 4 0 0 1 22 20 H19 Z"
+                  fill="var(--accent-fg)"
+                />
+                <circle cx="23" cy="16" r="3.2" fill="var(--accent)" />
+                <circle cx="23" cy="16" r="2.1" fill="var(--accent-fg)" />
+              </svg>
+            </span>
+            <div className="app-brand-copy">
+              <h1 className="app-title">{APP_NAME}</h1>
+              <p className="app-tagline">{APP_TAGLINE}</p>
+            </div>
           </div>
 
           {/*
@@ -2660,7 +2687,7 @@ export default function App() {
           */}
           <a
             className={`btn btn-icon app-source-link${stars !== null ? ' has-stars' : ''}`}
-            href="https://github.com/xevrion/breakscale"
+            href={GITHUB_URL}
             target="_blank"
             rel="noreferrer noopener"
             aria-label={

@@ -2,7 +2,7 @@
 
 ## Our pledge
 
-We want Breakscale to be a project where anyone can learn and contribute, whatever their
+We want Loadrift to be a project where anyone can learn and contribute, whatever their
 experience level. Many people here are students, and asking a basic question should never feel
 risky.
 

@@ -218,8 +218,21 @@
 .app-brand {
   display: flex;
   flex: none;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--sp-2);
+  min-width: 0;
+}
+
+.app-mark {
+  display: flex;
+  flex: none;
+}
+
+.app-brand-copy {
+  display: flex;
   flex-direction: column;
-  gap: var(--sp-1);
+  gap: 2px;
   min-width: 0;
 }
 
@@ -228,8 +241,8 @@
   font-size: var(--fs-base);
   line-height: var(--lh-label);
   font-weight: var(--fw-num);
-  letter-spacing: var(--tr-base);
-  color: var(--text);
+  letter-spacing: -0.03em;
+  color: var(--accent);
   white-space: nowrap;
 }
 

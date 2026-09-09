@@ -59,7 +59,7 @@ const DEFAULT_WARMUP_MS = 0;
  *
  * `??` delivers the promise above for an UNSET field and not for one set to
  * something that is not a number, and none of these knobs is among the nine
- * config numbers `isTopology` checks -- so a shared link, a `.breakscale`
+ * config numbers `isTopology` checks -- so a shared link, a `.loadrift`
  * file and a restored session can all hand the controller a NaN. NaN then
  * survives `Math.floor`, `Math.max` and `clamp01` alike, because it fails
  * every comparison those are written from, and the controller stops

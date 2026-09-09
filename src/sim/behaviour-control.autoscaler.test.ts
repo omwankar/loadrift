@@ -5,7 +5,7 @@ import type { NodeStats, Topology } from './types';
 
 /*
  * None of the autoscaler's knobs is among the nine config numbers
- * `isTopology` checks, so a shared link, a `.breakscale` file and a restored
+ * `isTopology` checks, so a shared link, a `.loadrift` file and a restored
  * session can all hand the controller a value that is not a number. What it
  * does with one is a property of the controller.
  *

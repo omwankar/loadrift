@@ -8,8 +8,8 @@
 
 ## Before going public
 
-- [x] Deploy (breakscale.vercel.app)
-- [x] Custom domain (breakscale.tech)
+- [x] Deploy (loadrift.vercel.app)
+- [x] Custom domain (loadrift.tech)
       Every host reference derives from tools/site.ts, so moving origin is one
       environment variable rather than a search and replace.
 - [x] Logo + favicon
@@ -65,7 +65,7 @@ system-design terms that established course sites already hold.
 ## Save / share (parity with the canvas tools people expect)
 
 - [x] Design persists to localStorage, restores on reload
-- [x] Export to file (.breakscale)
+- [x] Export to file (.loadrift)
 - [x] Import from file, drag-and-drop onto the canvas
 - [x] Export as PNG / SVG
 - [x] Share link: topology encoded in the URL hash, read-only for the recipient

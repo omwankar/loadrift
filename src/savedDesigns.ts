@@ -20,7 +20,7 @@ import type { Topology } from './sim/types';
  * version of the format, so nothing here trusts its own shelf.
  * ------------------------------------------------------------------ */
 
-const STORAGE_KEY = 'breakscale.designs.v1';
+const STORAGE_KEY = 'loadrift.designs.v1';
 
 /**
  * How many designs are kept.

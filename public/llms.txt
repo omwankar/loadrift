@@ -1,4 +1,4 @@
-# Breakscale
+# Loadrift
 
 > A discrete-event system design simulator for learning how distributed systems
 > behave under load. Build a topology, push traffic through it, and watch real
@@ -8,7 +8,7 @@ Everything runs in the browser. No account, no backend, nothing leaves the page.
 
 ## What it is for
 
-Most system design material is static diagrams and rules of thumb. Breakscale
+Most system design material is static diagrams and rules of thumb. Loadrift
 runs the experiment instead. Load an example, drag the traffic up, and watch a
 system fail in the specific way that example is about.
 
@@ -32,10 +32,10 @@ system fail in the specific way that example is about.
   of Netflix, Spotify, Discord, Uber, Twitter/X, Stripe and WhatsApp.
 - Chaos controls: crash a component, slow it, force errors, or cut a link.
 - A 100-term glossary explaining every metric and what it means in practice.
-  Readable as plain HTML at https://breakscale.vercel.app/glossary
+  Readable as plain HTML at https://loadrift.vercel.app/glossary
 
 ## Links
 
-- App: https://breakscale.vercel.app/
-- Source: https://github.com/xevrion/breakscale
+- App: https://loadrift.vercel.app/
+- Source: https://github.com/omwankar/loadrift
 - Licence: MIT

@@ -74,7 +74,7 @@ export const DEFAULT_PREFERENCES: Preferences = {
   theme: 'system',
 };
 
-const STORAGE_KEY = 'breakscale.preferences.v1';
+const STORAGE_KEY = 'loadrift.preferences.v1';
 
 const listeners = new Set<() => void>();
 let current: Preferences = load();

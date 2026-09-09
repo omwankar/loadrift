@@ -41,7 +41,7 @@ import { clamp01 } from './behaviour';
  *
  * The cap is here rather than at the slider because one ring buffer is
  * allocated per partition, and `partitions` is not one of the nine config
- * numbers `isTopology` checks: a shared link, a `.breakscale` file and a
+ * numbers `isTopology` checks: a shared link, a `.loadrift` file and a
  * restored session all carry whatever it says into that loop.
  */
 const MAX_PARTITIONS = 64;

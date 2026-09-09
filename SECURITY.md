@@ -1,6 +1,6 @@
 # Security
 
-Breakscale runs entirely in the browser. It has no backend, no accounts, and sends no data
+Loadrift runs entirely in the browser. It has no backend, no accounts, and sends no data
 anywhere; a saved design lives in your own browser storage or in a link you choose to share.
 
 That limits the blast radius of most issues, but not all of them. If you find something that could

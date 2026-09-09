@@ -6,7 +6,7 @@ import type { NodeStats, NodeKind, Topology } from './types';
 /*
  * A broker builds one ring buffer per partition, and `partitions` is not one
  * of the nine config numbers `isTopology` checks. A shared link, a
- * `.breakscale` file and a restored session therefore carry whatever it says
+ * `.loadrift` file and a restored session therefore carry whatever it says
  * into that loop, so what the engine does with a count the inspector could
  * never set is a property of the engine.
  */

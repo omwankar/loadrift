@@ -1,6 +1,6 @@
-# Contributing to Breakscale
+# Contributing to Loadrift
 
-Thanks for taking the time. Breakscale is a teaching tool, so the bar for a change is not only
+Thanks for taking the time. Loadrift is a teaching tool, so the bar for a change is not only
 "does it work" but "does it help someone understand distributed systems better".
 
 Do not worry if you get any of the process below wrong, or if you have not contributed to a
@@ -36,8 +36,8 @@ You need [Bun](https://bun.sh). Node 20 or newer also works if you prefer npm.
 Fork the repo on GitHub first, then:
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/breakscale.git
-cd breakscale
+git clone https://github.com/YOUR-USERNAME/loadrift.git
+cd loadrift
 bun install
 bun dev
 ```
@@ -48,7 +48,7 @@ Work on a branch rather than on `main`, and point `main` at this repository so y
 current without your fork drifting:
 
 ```bash
-git remote add upstream https://github.com/xevrion/breakscale.git
+git remote add upstream https://github.com/omwankar/loadrift.git
 git fetch upstream
 git branch --set-upstream-to=upstream/main main
 git checkout -b your-branch-name

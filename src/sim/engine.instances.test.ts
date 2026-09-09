@@ -5,7 +5,7 @@ import type { NodeStats, Topology } from './types';
 
 /*
  * `instances` reaches the engine from places that are not the inspector: a
- * shared link, a `.breakscale` file and a restored session all carry it
+ * shared link, a `.loadrift` file and a restored session all carry it
  * through, and `isTopology` checks nine core numbers and not this one. The
  * engine writes one array element per instance on every snapshot, so what it
  * does with a number the editor could never produce is a property of the

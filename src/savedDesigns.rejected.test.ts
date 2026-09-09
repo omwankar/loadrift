@@ -23,7 +23,7 @@ import type { NodeKind, Topology } from './sim/types';
  * happens rather than a hand-corrupted fixture.
  */
 
-const KEY = 'breakscale.designs.v1';
+const KEY = 'loadrift.designs.v1';
 
 const node = (id: string, kind: NodeKind) => ({
   id,

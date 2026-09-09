@@ -6,7 +6,7 @@ import type { NodeStats, Topology } from './types';
 /*
  * The transcoder's ladder is a loop that runs once per rendition per
  * outgoing edge per finished job, and `renditions` is not one of the nine
- * config numbers `isTopology` checks. A shared link, a `.breakscale` file
+ * config numbers `isTopology` checks. A shared link, a `.loadrift` file
  * and a restored session carry whatever it says into that loop.
  */
 

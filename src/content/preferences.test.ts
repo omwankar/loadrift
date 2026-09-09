@@ -71,7 +71,7 @@ describe('persistence', () => {
 
   it('writes the change to storage', () => {
     setPreference('tooltips', true);
-    const raw = localStorage.getItem('breakscale.preferences.v1');
+    const raw = localStorage.getItem('loadrift.preferences.v1');
     expect(raw).toBeTruthy();
     expect(JSON.parse(raw as string).tooltips).toBe(true);
   });
@@ -90,7 +90,7 @@ describe('persistence', () => {
       '{"tooltips":null,"sparklines":7}',
     ];
     for (const raw of hostile) {
-      localStorage.setItem('breakscale.preferences.v1', raw);
+      localStorage.setItem('loadrift.preferences.v1', raw);
       // The loader runs at import time, so what is asserted here is that a
       // reset with hostile bytes still lands on the defaults rather than
       // throwing or half-applying.

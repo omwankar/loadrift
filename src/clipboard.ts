@@ -155,7 +155,7 @@ export function buildClipboardText(
 ): string | null {
   const sub = selectionSubgraph(topology, selectedIds);
   if (!sub) return null;
-  return JSON.stringify({ app: 'breakscale', nodes: sub.nodes, edges: sub.edges });
+  return JSON.stringify({ app: 'loadrift', nodes: sub.nodes, edges: sub.edges });
 }
 
 /**

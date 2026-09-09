@@ -250,7 +250,7 @@ const retryqueue: ComponentBehaviour = {
  * The cap is here rather than at the number input because the ladder is a
  * loop that runs once per rendition per outgoing edge per finished job, and
  * `renditions` is not one of the nine config numbers `isTopology` checks: a
- * shared link, a `.breakscale` file and a restored session carry whatever it
+ * shared link, a `.loadrift` file and a restored session carry whatever it
  * says straight into that loop.
  */
 const MAX_RENDITIONS = 12;

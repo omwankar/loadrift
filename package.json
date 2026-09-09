@@ -1,5 +1,5 @@
 {
-  "name": "breakscale",
+  "name": "loadrift",
   "private": true,
   "version": "0.1.0",
   "type": "module",
@@ -42,7 +42,7 @@
   "description": "Build a system, load it until it breaks, and watch why",
   "repository": {
     "type": "git",
-    "url": "https://github.com/xevrion/breakscale.git"
+    "url": "https://github.com/omwankar/loadrift.git"
   },
   "lint-staged": {
     "*.{ts,tsx,css,json,md}": "prettier --write"

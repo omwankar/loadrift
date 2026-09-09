@@ -23,7 +23,7 @@ function fromEnv(): string | undefined {
   return undefined;
 }
 
-export const SITE_ORIGIN = fromEnv() ?? 'https://breakscale.vercel.app';
+export const SITE_ORIGIN = fromEnv() ?? 'https://loadrift.vercel.app';
 
 /** An absolute URL for a path, for metadata that cannot take a relative one. */
 export function siteUrl(path = '/'): string {

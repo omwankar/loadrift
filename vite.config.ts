@@ -20,7 +20,7 @@ import { SITE_ORIGIN } from './tools/site.ts';
 function glossaryPage(): Plugin {
   const ROUTE = '/glossary';
   return {
-    name: 'breakscale-glossary-page',
+    name: 'loadrift-glossary-page',
     apply: () => true,
     configureServer(server) {
       server.middlewares.use((req, res, next) => {
@@ -59,12 +59,12 @@ function glossaryPage(): Plugin {
  * publishing a canonical that claims to be production.
  */
 function siteOrigin(): Plugin {
-  const PLACEHOLDER = 'https://breakscale.vercel.app';
+  const PLACEHOLDER = 'https://loadrift.vercel.app';
   const swap = (text: string) =>
     SITE_ORIGIN === PLACEHOLDER ? text : text.split(PLACEHOLDER).join(SITE_ORIGIN);
 
   return {
-    name: 'breakscale-site-origin',
+    name: 'loadrift-site-origin',
     apply: 'build',
     transformIndexHtml: swap,
     generateBundle(_options, bundle) {

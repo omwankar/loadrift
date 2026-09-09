@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { GITHUB_REPO } from './brand';
 
 /**
  * The repo's star count, read from GitHub's public API and cached in
@@ -12,8 +13,8 @@ import { useEffect, useState } from 'react';
  * on GitHub.
  */
 
-const REPO = 'xevrion/breakscale';
-const STORAGE_KEY = 'bs-stars';
+const REPO = GITHUB_REPO;
+const STORAGE_KEY = 'loadrift-stars';
 /* Five minutes. Long enough that a reader clicking around the app is not
    spending requests against the unauthenticated rate limit, short enough
    that a count climbing during a launch is right by the next page load. */

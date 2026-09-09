@@ -15,7 +15,7 @@ body:
     attributes:
       label: What would it teach
       description: |
-        Breakscale is a teaching tool, so the strongest case for a feature is the
+        Loadrift is a teaching tool, so the strongest case for a feature is the
         thing a student would understand afterwards that they did not before.
     validations:
       required: true

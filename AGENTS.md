@@ -1,6 +1,6 @@
 # Project coding standards
 
-Breakscale is a discrete-event system design simulator for CS students. `src/sim` is a pure
+Loadrift is a discrete-event system design simulator for CS students. `src/sim` is a pure
 simulation engine with no React, no DOM and no I/O; everything else is the interface around it.
 
 ## Communication

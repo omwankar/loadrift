@@ -1693,7 +1693,7 @@
    paint it in another. */
 .cv-note.is-sm .cv-note-text {
   font-size: 12px;
-  font-weight: 450;
+  font-weight: 400;
   /* Dims via `color` rather than `fill`, so an explicit colour on the group
      still wins. Setting fill here would override currentColor and make a
      small note the one size that ignores its own colour. */
@@ -1702,12 +1702,12 @@
 
 .cv-note.is-md .cv-note-text {
   font-size: 16px;
-  font-weight: 450;
+  font-weight: 400;
 }
 
 .cv-note.is-lg .cv-note-text {
   font-size: 24px;
-  font-weight: 550;
+  font-weight: 500;
 }
 
 /* --------------------------------------------------------------------------

@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/banner.png" alt="Loadrift: build a system, load it until it breaks, watch why" width="100%" />
+  <img src="docs/banner.png" alt="Loadrift: build a system, load it until it drifts, watch why" width="100%" />
 </p>
 
 <h4 align="center">
@@ -32,9 +32,6 @@ systems collapsing into retry storms.
 
 Every number comes from an actual discrete-event simulation. Nothing is faked, approximated, or
 animated to look plausible.
-
-This is a customized fork of [Breakscale](https://github.com/xevrion/breakscale) by Yash Bavadiya,
-with a new name, teal colour theme, and typefaces.
 
 ## Why this exists
 
@@ -171,9 +168,6 @@ rendering predictable.
 ## License
 
 [MIT](LICENSE)
-
-Loadrift is a fork of [Breakscale](https://github.com/xevrion/breakscale). The original copyright
-is retained in [LICENSE](LICENSE).
 
 The bundled webfonts in `public/fonts/` are **not** covered by the MIT licence. They are licensed
 separately under the [SIL Open Font License 1.1](https://scripts.sil.org/OFL), which ships

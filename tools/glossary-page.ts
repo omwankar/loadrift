@@ -126,7 +126,7 @@ ${entries.map(entryHtml).join('\n')}
       property="og:description"
       content="${GLOSSARY.length} system design terms explained in plain language, each with why it matters."
     />
-    <meta property="og:image" content="${SITE}/og.png" />
+    <meta property="og:image" content="${SITE}/card.png" />
     <meta name="twitter:card" content="summary_large_image" />
 
     <script type="application/ld+json">
